@@ -1,0 +1,356 @@
+{
+  "info": {
+    "_postman_id": "eb0764ac-7c51-48da-8714-be5e25b6bfb3",
+    "name": "OrderManagement",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36503291"
+  },
+  "item": [
+    {
+      "name": "CreateProduct",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Idempotency-Key",
+            "value": "asd123",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\" : 0,\r\n    \"name\" : \"Teh\",\r\n    \"quantity\" : 350,\r\n    \"price\" : 10000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5150/api/Product",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5150",
+          "path": [
+            "api",
+            "Product"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ListOrder",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\" : 0,\r\n    \"name\" : \"Kopi\",\r\n    \"quantity\" : 1,\r\n    \"price\" : 20000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5150/api/Order?pageSize=5&pageNumber=2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5150",
+          "path": [
+            "api",
+            "Order"
+          ],
+          "query": [
+            {
+              "key": "pageSize",
+              "value": "5"
+            },
+            {
+              "key": "pageNumber",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DetailOrder",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\" : 0,\r\n    \"name\" : \"Kopi\",\r\n    \"quantity\" : 1,\r\n    \"price\" : 20000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5150/api/Order/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5150",
+          "path": [
+            "api",
+            "Order",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateOrder",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Idempotency-Key",
+            "value": "inilah12567",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"customerId\" : 1,\r\n    \"shippingAddress\" : \"Kopeng Salatiga\",\r\n    \"shippingStatusId\" : 1,\r\n    \"orderDate\" : \"2026-07-14T11:29:00Z\",\r\n    \"productOrders\" :\r\n    [\r\n        {\r\n            \"productId\" : 1,\r\n            \"quantity\" : 7\r\n        },\r\n        {\r\n            \"productId\" : 2,\r\n            \"quantity\" : 3\r\n        }\r\n    ]\r\n    \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5150/api/Order",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5150",
+          "path": [
+            "api",
+            "Order"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateOrderForIdempotency",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Idempotency-Key",
+            "value": "inilah12",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"customerId\" : 1,\r\n    \"shippingAddress\" : \"Plumbon Salatiga\",\r\n    \"shippingStatusId\" : 1,\r\n    \"orderDate\" : \"2026-07-14T11:29:00Z\",\r\n    \"productOrders\" :\r\n    [\r\n        {\r\n            \"productId\" : 1,\r\n            \"quantity\" : 5\r\n        },\r\n        {\r\n            \"productId\" : 2,\r\n            \"quantity\" : 5\r\n        }\r\n    ]\r\n    \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5150/api/Order",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5150",
+          "path": [
+            "api",
+            "Order"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateStatusOrder",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Idempotency-Key",
+            "value": "race2",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5150/api/Order?id=6&statusId=2&rowVersion=1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5150",
+          "path": [
+            "api",
+            "Order"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "6"
+            },
+            {
+              "key": "statusId",
+              "value": "2"
+            },
+            {
+              "key": "rowVersion",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateStatusOrderForRaceCondition",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Idempotency-Key",
+            "value": "race4",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5150/api/Order?id=6&statusId=3&rowVersion=1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5150",
+          "path": [
+            "api",
+            "Order"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "6"
+            },
+            {
+              "key": "statusId",
+              "value": "3"
+            },
+            {
+              "key": "rowVersion",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
